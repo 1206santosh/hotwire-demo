@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todos</h1>
+
+<%= render "form", todo: Todo.new %>
+<%= turbo_stream_from 'todos'%>
+<%= turbo_frame_tag 'todos' do %>
+  <%= render @todos%>
+<%- end %>
+
+<%= link_to 'New Todo', new_todo_path %>
